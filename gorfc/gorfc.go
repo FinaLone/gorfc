@@ -249,10 +249,10 @@ func fillVariable(cType C.RFCTYPE, container C.RFC_FUNCTION_HANDLE, cName *C.SAP
 	case C.RFCTYPE_INT2, C.RFCTYPE_INT, C.RFCTYPE_INT8:
 		rc = C.RfcSetInt(container, cName, C.RFC_INT(reflect.ValueOf(value).Int()), &errorInfo)
 	case C.RFCTYPE_DATE:
-		cValue, err = fillString(value.(time.Time).Format("20060102"))
+		cValue, err = fillString(value.(*time.Time).Format("20060102"))
 		rc = C.RfcSetDate(container, cName, (*C.RFC_CHAR)(cValue), &errorInfo)
 	case C.RFCTYPE_TIME:
-		cValue, err = fillString(value.(time.Time).Format("150405"))
+		cValue, err = fillString(value.(*time.Time).Format("150405"))
 		rc = C.RfcSetTime(container, cName, (*C.RFC_CHAR)(cValue), &errorInfo)
 	case C.RFCTYPE_UTCLONG:
 		cValue, err = fillString(reflect.ValueOf(value).String())
