@@ -12,7 +12,7 @@ import (
 
 	"testing"
 
-	"github.com/sap/gorfc/gorfc/testutils"
+	"github.com/FinaLone/gorfc/gorfc/testutils"
 	"github.com/stretchr/testify/assert"
 )
 
